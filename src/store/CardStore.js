@@ -7,7 +7,9 @@ export default class StoreCard {
     _sizeCard = 10;
     _defaultSize = 10;
 
-    constructor() {
+    constructor(defSize = 10) {
+        this._defaultSize = defSize;
+        this._sizeCard = defSize;
         makeObservable(this, {
             _listCard: observable,
             _sizeCard: observable,

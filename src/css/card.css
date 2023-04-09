@@ -3,6 +3,7 @@
     top: 0;
     right: 0;
     background: transparent;
+    z-index: 1;
 }
 .nodrg{
     -webkit-user-drag: none;
