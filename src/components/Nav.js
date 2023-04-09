@@ -9,17 +9,14 @@ const ToggleButtonNav = observer(function ToggleButtonNav(props) {
     </button>;
 });
 
-const idSchedule = "offcanvasNavbarSchedule";
-const idNav = "offcanvasNavbar";
-
 function Nav() {
     return <nav className="navbar bg-light">
         <div className="container-fluid">
             <h1 className={"text-center"}>Общаемся вместе</h1>
 
-            <ToggleButtonNav title={"Расписание"} id={idSchedule}/>
+            <ToggleButtonNav title={"Расписание"} id={"offcanvasNavbarSchedule"}/>
 
-            <ToggleButtonNav title={"Карточки"} id={idNav}/>
+            <ToggleButtonNav title={"Карточки"} id={"offcanvasNavbar"}/>
 
             <NavCards store={storeCard} id={"offcanvasNavbar"} title={"Карточки"}/>
 

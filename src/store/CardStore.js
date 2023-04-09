@@ -6,10 +6,13 @@ export default class StoreCard {
     _searchText = "";
     _sizeCard = 10;
     _defaultSize = 10;
+    _listGroup = [];
 
-    constructor(defSize = 10) {
+    constructor(defSize = 10, listGroup = []) {
         this._defaultSize = defSize;
         this._sizeCard = defSize;
+        this._listGroup = listGroup;
+
         makeObservable(this, {
             _listCard: observable,
             _sizeCard: observable,
@@ -18,12 +21,17 @@ export default class StoreCard {
             sizeCard: computed,
             defaultSize: computed,
             searchText: computed,
+            listGroup: computed,
             addCard: action,
             clearList: action,
             removeCard: action,
             changeSize: action,
             setSearchText: action
         });
+    }
+
+    get listGroup() {
+        return this._listGroup;
     }
 
     get searchText() {

@@ -1,6 +1,7 @@
 import { computed, makeObservable, observable } from "mobx";
 import want from "../image/want.jpg";
 import not_want from "../image/not_want.jpg";
+import apple from "../image/apple.jpg";
 
 export default class Cards {
 
@@ -16,6 +17,9 @@ export default class Cards {
 		this._listCard.push(c);
 
 		c = { header: "Не хочу", title: "Действие - Не хочу", src: not_want, group: "action" };
+		this._listCard.push(c);
+
+		c = { header: "Яблоко", title: "Предмет - Яблоко", src: apple, group: "item" };
 		this._listCard.push(c);
 	}
 
