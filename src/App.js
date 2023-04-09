@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {observer} from "mobx-react";
+import {storeCard, storeCardSchedule} from "./init";
+import Card from "./components/Card";
+import Nav from "./components/Nav";
+
+const CardList = observer(function CardList(props) {
+    return <>{props.store.listCard.map(m => <Card card={m} key={m.id} store={props.store}/>)}</>;
+});
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className={"container-fluid"}>
+            <Nav/>
+            <div className={"row"}>
+
+                <div className={"col-3"}>
+                    <CardList store={storeCardSchedule}/>
+                </div>
+
+                <div className="col">
+                    <div className={"row justify-content-center"}>
+                        <CardList store={storeCard}/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    );
 }
 
-export default App;
+export default observer(App);
